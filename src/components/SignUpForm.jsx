@@ -34,12 +34,12 @@ export default function SignUpForm ({ setToken }) {
     { error &&  <p>{error}</p>}
     
     <form onSubmit={handleSubmit}>
-        <label>Username: <input value={username} onChange={(event) => {
+        <label>Username: <input minLength="8" value={username} onChange={(event) => {
             console.log (event.target.value);
             setUsername (event.target.value);
         }}
             id="user-name" /></ label><br />
-        <label>Password: <input value={password} onChange={(event) => {
+        <label>Password: <input minLength="8" value={password} onChange={(event) => {
             setPassword(event.target.value);
         }} type="password" id="user-password" /></label>
             
