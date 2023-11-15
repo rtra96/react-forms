@@ -1,6 +1,7 @@
 import { useState } from "react";
 export default function Authenticate ( {token} ) {
     const [error, setError] = useState(null);
+    const [sucessMessage, setSuccessMessage] = useState(null);
 
     async function handleClick() {
     try {
@@ -12,6 +13,7 @@ export default function Authenticate ( {token} ) {
         }})
         const info= await rsp.json();
         console.log(info);
+        setSuccessMessage(info.message);
     }
 
     catch (err) {
@@ -23,5 +25,7 @@ export default function Authenticate ( {token} ) {
     <h2>Authenticate</h2>
     {error && <p>{error}</p>}
     <button onClick={handleClick}>Authenticate Token</button>
+    
+    {successMessage & <p>{sucessMessage}</p>}
     </>
 }
